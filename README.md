@@ -1,27 +1,66 @@
-# EX-03 UNIVARIATE ANALYSIS
-## Aim:
+# ODD2023-DataScience
+# Ex-03 Univariate Analysis
+# Aim:
 To read the given data and perform the univariate analysis with different types of plots.
-## Explanation:
+
+# Explanation:
 Univariate analysis is basically the simplest form to analyze data. Uni means one and this means that the data has only one kind of variable. The major reason for univariate analysis is to use the data to describe. The analysis will take data, summarise it, and then find some pattern in the data.
-## Algorithm:
-- Step 1: Read the given data.
-- Step 2: Get the information about the data.
-- Step 3: Remove the null values from the data.
-- Step 4: Mention the datatypes from the data.
-- Step 5: Count the values from the data.
-- Step 6: Do plots like boxplots,countplot,distribution plot,histogram plot.
-## Program:
+
+# Algorithm:
+### Step1:
+Read the given data.
+
+### Step2:
+Get the information about the data.
+
+### Step3:
+Remove the null values from the data.
+
+### Step4:
+Mention the datatypes from the data.
+
+### Step5:
+Count the values from the data.
+
+### Step6:
+Do plots like boxplots,countplot,distribution plot,histogram plot.
+
+# Program:
+DEVELOPED BY :Vasanthamukilan M
+
+REGISTER NO :212222230167
+
+## SUPERSTORE.CSV
 ```
-Developed By: VASANTHAMUKILAN M
-Register Number: 212222230167
+import pandas as pd
+import numpy as np
+import seaborn as sns
+
+df=pd.read_csv('superstore.csv')
+df
+
+df.head()
+df.info()
+df.describe()
+df.isnull().sum()
+
+df.dtypes
+
+df['Postal Code'].value_counts()
+
+sns.boxplot(x='Postal Code', data=df)
+sns.countplot(x='Postal Code',data=df)
+sns.distplot(df["Postal Code"])
+sns.histplot(x='Postal Code',data=df)
 ```
-- Diabetes.csv
-```Python 
+## DIABETES.CSV:
+```
 import pandas as pd
 import seaborn as sns
 import numpy as np
 from scipy import stats
 from google.colab import files
+uploaded=files.upload()
 df=pd.read_csv('diabetes.csv')
 df.head()
 df.describe()
@@ -38,50 +77,14 @@ sns.countplot(x="Glucose",data=df)
 sns.distplot(df['Glucose'])
 sns.histplot(x="Glucose",data=df)
 ```
-- Output(diabetes.csv) :<br>
-![ds_3_1](https://github.com/Vasanthamukilan/ODD2023-DataScience-Ex-03/assets/119559694/943c889b-5bd7-495d-8e8e-71eb75a4a938)
-![ex_3_2](https://github.com/Vasanthamukilan/ODD2023-DataScience-Ex-03/assets/119559694/f81d2e1d-0a09-492f-862e-c58c7da60f17)
-![exp_3_3](https://github.com/Vasanthamukilan/ODD2023-DataScience-Ex-03/assets/119559694/9a46d62d-c593-4708-b3fe-4d4863837330)
-![exp_3_4](https://github.com/Vasanthamukilan/ODD2023-DataScience-Ex-03/assets/119559694/648e1d87-1838-4b6b-af2e-ff26667f3941)
-![exp_3_5](https://github.com/Vasanthamukilan/ODD2023-DataScience-Ex-03/assets/119559694/f5c2abd0-9825-4f47-9bcb-c097132b37e4)
-![exp_3_6](https://github.com/Vasanthamukilan/ODD2023-DataScience-Ex-03/assets/119559694/c5b8585a-0102-44e8-8fca-aca3019d0c89)
-![exp_3_7](https://github.com/Vasanthamukilan/ODD2023-DataScience-Ex-03/assets/119559694/e6dc8b7b-24c4-497e-b2d4-c9a6082ba5f0)
-![exp_3_8](https://github.com/Vasanthamukilan/ODD2023-DataScience-Ex-03/assets/119559694/09dd6657-4728-4a26-8eca-bf87cf5ea60b)
-- SuperStore.csv:
-
-```Python
-import pandas as pd
-import seaborn as sns
-import numpy as np
-from scipy import stats
-from google.colab import files
-df=pd.read_csv('SuperStore.csv')
-df.head()
-df.describe()
-df.isnull().sum()
-df.info()
-df['Postal Code']=df['Postal Code'].fillna(method='ffill')
-sns.boxplot(x='Postal Code', data=df)
-sns.countplot(x='Postal Code',data=df)
-sns.distplot(df["Postal Code"])
-sns.histplot(x="Postal Code",data=df)
+## EMPLOYEESAL.CSV
 ```
-- Output(SuperStore.csv) :
-![exp_3_9](https://github.com/Vasanthamukilan/ODD2023-DataScience-Ex-03/assets/119559694/81c0f75f-70d4-41d7-ba4f-4b9d44559f5b)
-![exp_3_10](https://github.com/Vasanthamukilan/ODD2023-DataScience-Ex-03/assets/119559694/2050a727-ed45-41d4-b1b7-53ddfcd4a943)
-![exp_3_11](https://github.com/Vasanthamukilan/ODD2023-DataScience-Ex-03/assets/119559694/cafdfcf7-e31f-4813-8bc9-dcc489e12d33)
-![exp_3_12](https://github.com/Vasanthamukilan/ODD2023-DataScience-Ex-03/assets/119559694/fd9993ee-14da-4efc-a4f4-176098430470)
-![exp_3_13](https://github.com/Vasanthamukilan/ODD2023-DataScience-Ex-03/assets/119559694/73bc8d15-f735-49fa-a173-990a19fece2d)
-![exp_3_14](https://github.com/Vasanthamukilan/ODD2023-DataScience-Ex-03/assets/119559694/46bd12f4-722b-49a5-a48b-2868f51a577c)
-![exp_3_15](https://github.com/Vasanthamukilan/ODD2023-DataScience-Ex-03/assets/119559694/dba867f2-cfae-419b-a805-1bb059bf6223)
-![exp_3_16](https://github.com/Vasanthamukilan/ODD2023-DataScience-Ex-03/assets/119559694/3024a004-4d62-4353-aa6a-b2f2eb4dda10)
-- employeesal.csv:
-```Python
 import pandas as pd
 import seaborn as sns
 import numpy as np
 from scipy import stats
 from google.colab import files
+uploaded=files.upload()
 df=pd.read_csv('employeesal.csv')
 df.head()
 df.describe()
@@ -92,14 +95,80 @@ sns.countplot(x="Experience_Years",data=df)
 sns.distplot(df['Experience_Years'])
 sns.histplot(x="Experience_Years",data=df)
 ```
-- Output(employeesal.csv) :
-![exp_3_17](https://github.com/Vasanthamukilan/ODD2023-DataScience-Ex-03/assets/119559694/8e318cf7-9a65-4aa7-b9c7-c9180f3f4a56)
-![exp_3_18](https://github.com/Vasanthamukilan/ODD2023-DataScience-Ex-03/assets/119559694/2af26692-82fd-4ce7-b057-f11e692e32d8)
-![exp_3_20](https://github.com/Vasanthamukilan/ODD2023-DataScience-Ex-03/assets/119559694/146a9ae0-5d24-4a37-aec8-ec37ee2ce7e3)
-![exp_3_21](https://github.com/Vasanthamukilan/ODD2023-DataScience-Ex-03/assets/119559694/e9f07d34-ce4e-45e8-a4c0-3fdb0e602439)
-![exp_3_22](https://github.com/Vasanthamukilan/ODD2023-DataScience-Ex-03/assets/119559694/4c7024b3-8b78-4e11-9839-7de23f41cf3b)
-![exp_3_23](https://github.com/Vasanthamukilan/ODD2023-DataScience-Ex-03/assets/119559694/d80d7fdf-0e1f-4b94-83cc-54a77b3d0ce4)
-![exp_3_24](https://github.com/Vasanthamukilan/ODD2023-DataScience-Ex-03/assets/119559694/7c309add-e970-4450-8286-a82e47068336)
-![exp_3_25](https://github.com/Vasanthamukilan/ODD2023-DataScience-Ex-03/assets/119559694/a33ff6e3-94e3-4454-9594-202ec701611b)
-## Result:
+# OUTPUT:
+# SUPERSTORE.CSV:
+
+![272515924-dab07356-02d3-482c-925d-f71090f0c8e5](https://github.com/KRISHNARAJ-D/ODD2023-DataScience-Ex-03/assets/119559695/c3ed9ded-d972-4f6d-9fe0-02be9cb93e54)
+
+
+
+![272516004-c4bb4ae5-4e51-4b9a-a5f0-b3014cb648ec](https://github.com/KRISHNARAJ-D/ODD2023-DataScience-Ex-03/assets/119559695/c8174ab9-1aee-48b7-bfc0-23a5263850bb)
+
+
+![272516081-6199aaf4-0268-4535-b4c4-3a6ef42b9141](https://github.com/KRISHNARAJ-D/ODD2023-DataScience-Ex-03/assets/119559695/809e69ee-da1b-46bc-8b2a-c37c90dffdb5)
+
+
+
+![272516138-ae5c0f59-20eb-4944-af48-1dd2e95b9072](https://github.com/KRISHNARAJ-D/ODD2023-DataScience-Ex-03/assets/119559695/cb27fb7c-65d7-43c1-9470-f485d0e6bf2b)
+
+
+![272516201-a5a98935-3097-4af6-8003-ac9d510c8fc2](https://github.com/KRISHNARAJ-D/ODD2023-DataScience-Ex-03/assets/119559695/79fad7a6-5f6d-4aa0-b844-5a1f51cb5dc5)
+
+
+
+![272516284-49c3e822-cc10-4006-9bf1-67b01ac6456f](https://github.com/KRISHNARAJ-D/ODD2023-DataScience-Ex-03/assets/119559695/49366ff6-ee13-48e7-ae6f-fc31b06da4bd)
+
+
+![272516402-04e3240c-4cad-4560-81f5-da78765ee284](https://github.com/KRISHNARAJ-D/ODD2023-DataScience-Ex-03/assets/119559695/0c3e63b3-e8ef-415d-8fc1-399a4bff8856)
+
+
+![272516480-44f74bb3-d204-4f6a-8cb8-66405adad5a1](https://github.com/KRISHNARAJ-D/ODD2023-DataScience-Ex-03/assets/119559695/4ca2b799-f1ec-4920-8afe-f3bbf9f5d94c)
+
+
+![272516557-fd880d66-572b-4ee2-9076-f87314fb9b16](https://github.com/KRISHNARAJ-D/ODD2023-DataScience-Ex-03/assets/119559695/03bf88f7-3b29-4c75-bdea-ea5aa046aef4)
+
+
+
+
+![272516754-2b383bc1-a9cd-4daf-90ba-94123fbe416b](https://github.com/KRISHNARAJ-D/ODD2023-DataScience-Ex-03/assets/119559695/d4f0c7dc-ff1e-438b-aad3-7e7327e2e3fd)
+
+
+![272516818-07e83a45-f8f1-4378-a4a0-f2c37a44d935](https://github.com/KRISHNARAJ-D/ODD2023-DataScience-Ex-03/assets/119559695/c515d754-f075-42d7-b5b0-d603a861e54c)
+
+# DIABETES.CSV
+
+![272159225-1d3b12f6-7b20-4d55-bc5b-aa87020d5b89](https://github.com/KRISHNARAJ-D/ODD2023-DataScience-Ex-03/assets/119559695/d45e6459-5adf-4ef0-81a3-6bd4364091a7)
+
+![272159241-fa9b48c9-50b2-4c7d-a41b-7dd97ccbeffa](https://github.com/KRISHNARAJ-D/ODD2023-DataScience-Ex-03/assets/119559695/98512a37-e4db-419d-9fe7-a1bd636b530f)
+
+![272159261-df172427-658f-4dab-a2e1-4a8ff56c8639](https://github.com/KRISHNARAJ-D/ODD2023-DataScience-Ex-03/assets/119559695/706ed497-b59b-4c69-87ce-e05ca3a734db)
+
+![272159283-a079d5b0-5e56-4a79-8b82-b23e79c26f2d](https://github.com/KRISHNARAJ-D/ODD2023-DataScience-Ex-03/assets/119559695/a8e10c82-c6e6-42d1-9cd8-eb564b868a22)
+
+![272159299-6b8f321b-1b0b-4ef6-b1a3-15ccdb51d5f9](https://github.com/KRISHNARAJ-D/ODD2023-DataScience-Ex-03/assets/119559695/1c2faa26-961d-4622-a5ba-edbef68e94aa)
+
+![272159332-40ca042e-5c75-42e0-8786-c26c54039280](https://github.com/KRISHNARAJ-D/ODD2023-DataScience-Ex-03/assets/119559695/b08ae918-b4a6-41ff-bbf5-23db5eb36ff8)
+
+![272159352-c275a6cf-0d5e-4783-b4cc-5bd5999d1a07](https://github.com/KRISHNARAJ-D/ODD2023-DataScience-Ex-03/assets/119559695/317efdf1-a7c8-45b6-b033-28e15fba1ecf)
+
+# EMPLOYEESAL.CSV:
+![272162113-3c6aa2b1-a2c9-4e5c-b244-c1fd7b95de74](https://github.com/KRISHNARAJ-D/ODD2023-DataScience-Ex-03/assets/119559695/2abc376b-a481-4884-b18d-0f81f3aa5054)
+
+![272162136-50535ce5-798d-4689-a510-8b64542272e2](https://github.com/KRISHNARAJ-D/ODD2023-DataScience-Ex-03/assets/119559695/374e1837-5a41-45a5-916a-9d8489f21bf3)
+
+![272162126-7d5f1c67-e2ec-403f-908b-bba9fc6a1923](https://github.com/KRISHNARAJ-D/ODD2023-DataScience-Ex-03/assets/119559695/580ed8dd-7cc0-4a8f-bf41-a8fa07a19e03)
+
+![272162150-d33eeccd-9096-470d-852f-1d7d5e76b979](https://github.com/KRISHNARAJ-D/ODD2023-DataScience-Ex-03/assets/119559695/e4feeb08-1284-4eec-a4e8-3df56cc30b52)
+
+![272162162-73f32d4e-4fbc-46c7-bd18-18cc201e5998](https://github.com/KRISHNARAJ-D/ODD2023-DataScience-Ex-03/assets/119559695/ab63a7c7-479f-4808-bedf-d8be35dd1538)
+
+![272162171-bbdeff51-b108-4786-9223-8f6e825262a7](https://github.com/KRISHNARAJ-D/ODD2023-DataScience-Ex-03/assets/119559695/28b74c82-8dbc-40e1-b6e9-7a1a7a4e62bd)
+
+![272162189-9506c400-a405-424e-bbd8-5fc0417c3572](https://github.com/KRISHNARAJ-D/ODD2023-DataScience-Ex-03/assets/119559695/9f52bb1d-9512-43ad-ae84-aaf1d3af0443)
+
+![272162201-e574c9ed-8fdb-4f37-ad51-d8294e17a846](https://github.com/KRISHNARAJ-D/ODD2023-DataScience-Ex-03/assets/119559695/c886ebf6-ca55-495d-beb8-eea2b2dec00e)
+
+
+
+# Result:
 Thus we have read the given data and performed the univariate analysis with different types of plots.
